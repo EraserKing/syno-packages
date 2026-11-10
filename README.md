@@ -30,7 +30,26 @@ Publishing a release is enough. The worker only needs a redeploy when a new
 A static page would work for one package, but it would need a commit or
 redeploy on every release, so it does not scale to several packages.
 
-## Deploy
+## Deploy from Git (recommended)
+
+Connect the repo once, then every push to `main` deploys the Worker.
+
+1. Dashboard: **Workers & Pages → Create → Connect to Git**, or open the
+   existing Worker and use **Settings → Builds → Connect**.
+2. Pick `EraserKing/syno-packages` and branch `main`.
+3. Root directory `/`, build command empty, deploy command
+   `npx wrangler deploy`.
+4. The Worker name in the dashboard must be `synology-packages`, matching
+   `name` in `wrangler.toml`.
+
+Free plan: 3,000 build minutes per month and one concurrent build. A deploy
+of this Worker takes seconds. Pull requests get preview builds, so a change to
+the arch map can be checked before it reaches `main`.
+
+Use either Git deploys or manual deploys, not both. A manual deploy is
+overwritten by the next push.
+
+## Manual deploy
 
 Requires a Cloudflare account and the domain already added to Cloudflare.
 
