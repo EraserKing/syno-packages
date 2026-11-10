@@ -1,0 +1,11 @@
+name = "synology-packages"
+main = "catalog-worker.js"
+compatibility_date = "2025-06-01"
+
+# Serve the source on your own hostname. The zone must already be on
+# Cloudflare. Uncomment and replace the host, or add the custom domain in
+# the dashboard under Workers & Pages > synology-packages > Settings.
+#
+# routes = [
+#   { pattern = "pkg.example.com", custom_domain = true }
+# ]
